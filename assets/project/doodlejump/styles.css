@@ -1,0 +1,191 @@
+/* SECTION 1: Basic page setup */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: Arial, sans-serif;
+}
+
+/* SECTION 2: Game container */
+#gameContainer {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 50%, #FFF 100%);
+    border: 3px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* SECTION 3: Player (Doodler) */
+#player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #4CAF50;
+    border-radius: 50% 50% 40% 40%;
+    border: 2px solid #2E7D32;
+}
+
+/* Add eyes to make it more character-like */
+#player::before,
+#player::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    top: 15px;
+}
+
+#player::before {
+    left: 12px;
+}
+
+#player::after {
+    right: 12px;
+}
+
+/* SECTION 4: Platform styling */
+.platform {
+    position: absolute;
+    width: 70px;
+    height: 15px;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    border-radius: 5px;
+    border: 1px solid #654321;
+}
+
+.breaking-platform {
+    background: linear-gradient(to bottom, #FF0000, #CC0000); /* Red color for breaking platforms */
+    border: 1px solid #990000;
+}
+
+.breaking-platform.breaking {
+    background-color: red;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8);
+    animation: crackPlatform 0.3s forwards;
+}
+
+/* SECTION 5: Score display */
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    z-index: 100;
+}
+
+/* SECTION 6: Game Over screen */
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+#gameOver h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+#gameOver button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#gameOver button:hover {
+    background: #45a049;
+}
+
+/* SECTION 7: Start screen */
+#startScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#startScreen h1 {
+    margin: 0 0 20px 0;
+    color: #4CAF50;
+}
+
+#startScreen p {
+    margin: 10px 0;
+    color: #666;
+}
+
+#startScreen button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#startScreen button:hover {
+    background: #45a049;
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 20px,
+        transparent 20px,
+        transparent 40px
+    );
+    pointer-events: none; /* lets clicks go through */
+}
+
+.bouncy-platform{
+    background: #667eea;
+}
+
+@keyframes crackPlatform {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.95) rotate(2deg); opacity: 0.7; }
+    100% { transform: scale(0.9) rotate(-2deg); opacity: 0; }
+}
+
+.speed-platform {
+    background-color: orange;
+    border: 2px solid darkorange;
+}

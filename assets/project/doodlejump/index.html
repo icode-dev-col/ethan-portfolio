@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodle Jump Clone</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div id="gameContainer">
+        <div class="background-layer"></div>
+        <!-- Score Display -->
+        <div id="score">Score: 0</div>
+        
+        <!-- Player Character -->
+        <div id="player"></div>
+        
+        <!-- Start Screen -->
+        <div id="startScreen">
+            <h1>Doodle Jump</h1>
+            <p>Use ← → arrow keys to move</p>
+            <p>Jump on platforms to go higher!</p>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        
+        <!-- Game Over Screen -->
+        <div id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Your Score: <span id="finalScore">0</span></p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+</body>
+</html>
